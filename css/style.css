@@ -1,0 +1,242 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    scroll-behavior: smooth;
+    font-family: 'Switzer', sans-serif;
+}
+/*////////////////////NAV/////////////////////////*/
+
+/*STICKY*/
+header{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/*NAV STYLE*/
+
+nav{
+    display: flex;
+    justify-content: space-evenly;
+    padding-right: 20px;
+    align-items: center;
+    transition: all 0.3 ease-out;
+    padding: 20px;
+}
+
+.logo a img{
+    height: 50px;
+}
+
+nav ul{
+    display: flex;
+    gap: 50px;
+    list-style: none;
+    justify-content: space-around;
+}
+nav ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+li a img{
+    height: 30px;
+}
+li button{
+    position: relative;
+    top: 5px;
+    left: 1px;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+li button img{
+    height: 25px; 
+}
+li:last-child{
+    align-items: center;
+}
+
+/*circulo item carrito agregado*/
+
+li .carrito .circulo{
+    display: none;
+}
+li a .carrito .circuloActivo{
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(247, 247, 247);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+/*NAV STYLE SCROLL*/
+
+.activo{
+    transition: all 0.3s ease-in;
+    background-color: black;
+}
+.activo li .carrito img{
+    content: url(../img/carritoBlanco.png);
+
+}
+
+.activo li .carrito{
+    border-color: transparent;
+}
+
+.activo .logo a img{
+    content: url(../img/adidasBlanco.png);
+}
+
+.activo ul li a{
+    color: white;
+}
+
+.activo ul li button{
+    background-color: black;
+    border-left-color: white;
+    border-bottom-color: white;
+    border-top-color: white;
+    left: 3px;
+}
+
+
+/*///////////////MAIN//////////////////*/
+/*CARRITO////////*/
+.carritoDentroContainer{
+    display: none;
+}
+.carritoDentroContainerActivo{
+    margin-top: 50px;
+    width: 1400px;
+    height: fit-content;
+    background-color: rgb(214, 214, 214);
+    position: fixed;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    padding-bottom: 50px;
+}
+.headCarrito{
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 50px;
+    gap: 1000px;
+}
+.headCarrito .salirCarrito img{
+    height: 20px;
+}
+
+.salirCarrito{
+    border-color: transparent;
+}
+
+.headCarrito h2{
+    font-size: 30px;
+}
+.carritoDentroContainerActivo .carritoDentro .row{
+    display: flex;
+    gap: 130px;
+    align-items: center;
+}
+.carritoDentroContainerActivo .row img{
+    height: 100px;
+    background-color: white;
+}
+.carritoDentroContainerActivo.row .eliminar{
+    border: transparent;
+}
+.carritoDentroContainerActivo .row .eliminar img{
+    height: 20px;
+}
+
+/*SECTION 2*/
+
+.section2{
+    padding-top: 50px;
+    background-color: rgb(241, 241, 241);
+    padding-bottom: 20px;
+}
+.section2 h1{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
+    padding-top: 70px;
+    font-size: 40px;
+}
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 200px;
+}
+span:nth-of-type(2){
+    height: 50px;
+}
+
+/*////CARD/////*/
+
+.card{
+    height: 450px;
+    background-color: rgb(247, 247, 247);
+    width: 300px;
+}
+.card:hover .cardImg img{
+    height: 250px;
+    left: -10px;
+    transition: 0.4s all ease-in-out ;
+}
+.cardImg{
+    height: 250px;
+    width: 230px;
+    background-color: rgb(247, 247, 247);
+    position: relative;
+    left: 29px;
+    top: 10px;
+}
+.cardImg img{
+    height: 220px;
+    transition: 0.4s all ease-in-out;
+}
+.cardInfo{
+    padding-top: 50px;
+    padding-left: 20px;
+}
+.cardInfo p:first-of-type{
+    font-size: 24px;
+}
+.cardInfo p:last-of-type{
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+.cardInfo a .agregar{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 17px;
+    text-decoration: none;
+    color: black;
+    border-radius: 3px;
+    background-color: transparent;
+    transition: all 0.2s ease-out;
+}
+
+
+.cardInfo a .agregar:hover{
+    background-color: black;
+    color: white;
+    transition: all 0.2s ease-in;
+    box-shadow: 0px -1px 8px 4px rgba(194,194,194,0.68);
+}
