@@ -7,4 +7,7 @@ carritoBoton.addEventListener("click",(e)=>{
 
 function entrarAlCarrito(){
     carritoDentroContainer.classList.add("carritoDentroContainerActivo");
-    carritoDentroContainer.classList.remove("carritoDentroContainer");}
+    carritoDentroContainer.classList.remove("carritoDentroContainer");
+}
+
+

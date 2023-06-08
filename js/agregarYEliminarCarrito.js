@@ -1,34 +1,45 @@
 /////SI YA SE GENERO EL LOCAL STORAGE QUE SE CARGUE, SINO EMPEZAR CON EL CARRITO VACIO///
 
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || []
 const carritoDentro=document.querySelector(".carritoDentro")
-const totalContainer=document.querySelector(".total")
 ////si hay una clave carrito en el storage y se parseo a objeto en el carrito, mostrar esos objetos en el carrito
 if(JSON.parse(localStorage.getItem("carrito"))){
     carritoMostrar()
 }
-function agregarCarrito(id){
+function agregarCarrito(id, array){
 
     ///EVALUAR SI EL PRODUCTO EXISTE EN EL CARRITO///
     const cantidad=carrito.some((prod)=>prod.id===id)
     ////SI NO EXISTE HAY QUE BUSCAR EN EL ARRAY DE OBJETOS EL PRODUCTO Y PUSHEARLO AL CARRITO///
     console.log(cantidad)
     if(!cantidad){
-        const encontrar= productos.find((prod)=>prod.id==id)
-        carrito.push(encontrar);
+        const encontrar= array.find((prod)=>prod.id==id)
+        carrito.push({...encontrar,cantidad:1});
         carritoDentro.innerHTML=""
     }else{//SI YA EXISTE HAY QUE BUSCAR EN EL CARRITO EL QUE ESTA REPETIDO E INCREMENTARLO EN UNO//
         const encontrar=carrito.find((prod)=>prod.id===id)
         encontrar.cantidad++
+        
         carritoDentro.innerHTML=''
         }
         //CARGA LOS CAMBIOS EN EL LOCAL STORAGE
         localStorage.setItem("carrito",JSON.stringify(carrito));
-        //LOS MUESTRA EN EL CARRITO
-        carritoMostrar();
-        }
-    
+        //mostrar tostada producto agregado//
+        Toastify({
+            text:"producto agregado",
+            duration: 3000,
+            style:{
+                background: "linear-gradient(to right, #00b09b, #96c93d)"
+            },
+            close: true,
+        }).showToast()
+        //LOS MUESTRA EN EL CARRITO;
 
+        carritoMostrar();
+        console.log(carrito)
+        }
+        
+    
 function carritoMostrar(){
     carrito.forEach((prod)=>{
         carritoDentro.innerHTML+=`
@@ -49,9 +60,12 @@ function carritoMostrar(){
     /////SI EL CARRITO NO TIENE NADA, LE DECIMOS QUE NO HAY PRODUCTOS EN EL CARRITO//
     if(carrito.length<=0){
         carritoDentro.innerHTML=`
-        <h2>no hay productos en tu carrito</h2>
+        <h2>¡ups! no hay productos en tu carrito</h2>
         `
     }
+    console.log(carrito)
+    ////invoca a la funcion para actualizar el total////
+    total()
 }
 
 function eliminarCarrito(eliminar){
@@ -71,7 +85,27 @@ function eliminarCarrito(eliminar){
             localStorage.setItem("carrito",JSON.stringify(carrito))
             carritoDentro.innerHTML=''
             carritoMostrar()
+
+            //mostrar tostada producto eliminado//
+            Toastify({
+                text: "producto eliminado",
+                duration: 3000,
+                style:{
+                    background: 'rgb(2,0,36)',
+                    background: `linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(214,153,114,1) 0%, rgba(255,15,15,1) 100%, rgba(0,212,255,1) 100%)`
+                },
+                close:true,
+            }).showToast()
         })
     })
 }
+
+
+///actualiza el total del carrito//
+function total(){
+    const totalMostrar=document.querySelector(".total");
+    let cuenta=carrito.reduce((acumuladora, prod)=>acumuladora+prod.precio*prod.cantidad,0)
+    totalMostrar.innerHTML=`$${cuenta}`
+}
+
 

@@ -13,7 +13,7 @@ body{
 header{
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 3;
 }
 
 /*NAV STYLE*/
@@ -27,8 +27,10 @@ nav{
     padding: 20px;
 }
 
-.logo a img{
-    height: 50px;
+.logo a {
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
 }
 
 nav ul{
@@ -36,6 +38,7 @@ nav ul{
     gap: 50px;
     list-style: none;
     justify-content: space-around;
+    align-items: center;
 }
 nav ul li a{
     text-decoration: none;
@@ -59,20 +62,10 @@ li button img{
 li:last-child{
     align-items: center;
 }
-
-/*circulo item carrito agregado*/
-
-li .carrito .circulo{
-    display: none;
-}
-li a .carrito .circuloActivo{
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
-    background-color: rgb(247, 247, 247);
-    position: absolute;
-    top: 10px;
-    left: 10px;
+li .inputBuscar{
+    height: 30px;
+    font-size: 20px;
+    border-radius: 5px;
 }
 
 /*NAV STYLE SCROLL*/
@@ -90,8 +83,8 @@ li a .carrito .circuloActivo{
     border-color: transparent;
 }
 
-.activo .logo a img{
-    content: url(../img/adidasBlanco.png);
+.activo .logo a {
+    color: white;
 }
 
 .activo ul li a{
@@ -109,57 +102,68 @@ li a .carrito .circuloActivo{
 
 /*///////////////MAIN//////////////////*/
 /*CARRITO////////*/
+
+/*SECTION 2*/
 .carritoDentroContainer{
     display: none;
 }
 .carritoDentroContainerActivo{
-    margin-top: 30px;
-    width: 1200px;
-    height: fit-content;
     background-color: rgb(214, 214, 214);
+    height: fit-content;
+    max-height: 500px;
+    width: 1200px;
     position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    padding-bottom: 50px;
+    left: 10%;
+    z-index: 2;
+    overflow-y: scroll;
+    margin: 20px;
+    border-radius: 5px;
 }
 .headCarrito{
     padding-top: 50px;
     display: flex;
     justify-content: space-around;
-    padding-bottom: 50px;
-    gap: 1000px;
-}
-.headCarrito .salirCarrito img{
-    height: 20px;
-}
-
-.salirCarrito{
-    border-color: transparent;
-}
-
-.headCarrito h2{
-    font-size: 30px;
-}
-.carritoDentroContainerActivo .carritoDentro .row{
-    display: flex;
-    gap: 130px;
     align-items: center;
 }
-.carritoDentroContainerActivo .row img{
-    height: 100px;
-    background-color: white;
+.headCarrito button{
+    border-color: transparent;
+    background-color: transparent;
 }
-.carritoDentroContainerActivo.row .eliminar{
-    border: transparent;
+.headCarrito button img{
+    height: 40px;
 }
-.carritoDentroContainerActivo .row .eliminar img{
+.carritoDentro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    gap: 30px;
+}
+.carritoDentro h2{
+    position: relative;
+    left: 230px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.carritoDentro .row{
+    align-items: center;
+    display: flex;
+    gap: 30px;
+    height: 200px;
+    width: 200px;
+}
+.carritoDentro .row img{
+    height: 150px;
+}
+.carritoDentro .row button img{
     height: 20px;
 }
-
-/*SECTION 2*/
+.totalContainer{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
 
 .section2{
     padding-top: 50px;
@@ -183,8 +187,31 @@ li a .carrito .circuloActivo{
 span:nth-of-type(2){
     height: 50px;
 }
+.totalContainer .limpiar{
+    margin-left: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+    border-radius: 3px;
+    background-color: transparent;
+    transition: all 0.2s ease-out;
 
+}
+.totalContainer .limpiar:hover{
+    background-color: black;
+    color: white;
+    transition: all 0.2s ease-in;
+    box-shadow: 0px -1px 8px 4px rgba(194,194,194,0.68);
+    cursor: pointer;
+}
 /*////CARD/////*/
+.card .noFiltrar{
+    display: none;
+}
 
 .card{
     height: 450px;
@@ -238,4 +265,5 @@ span:nth-of-type(2){
     color: white;
     transition: all 0.2s ease-in;
     box-shadow: 0px -1px 8px 4px rgba(194,194,194,0.68);
+    cursor: pointer;
 }

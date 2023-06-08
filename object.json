@@ -1,0 +1,43 @@
+
+[
+    {
+        "nombre": "buzo nike rojo",
+        "precio": 30000,
+        "id": "Kkjnas92ewS",
+        "alt": "buzo-nike-rojo",
+        "img":"./img/buzoRojoNike.png",
+        "cantidad": 1
+    },
+    {
+        "nombre": "remera adidas blanca",
+        "precio": 15000,
+        "id": "Copdj0J95JNV",
+        "alt": "remera-adidas-blanca",
+        "img":"./img/remeraAdidasBlanca.png",
+        "cantidad": 1
+    },
+    {
+        "nombre":"remera nike negra",
+        "precio":17000,
+        "id":"UDTmw0217g",
+        "alt":"remera-nike-negra",
+        "img":"./img/remeraNike.png",
+        "cantidad": 1
+    },
+    {
+        "nombre": "zapatillas nike rosas",
+        "precio": 40000,
+        "id": "Aubuqo083",
+        "alt": "zapatillas-nike-rosas",
+        "img":"./img/zapatillasNikeRosas.png",
+        "cantidad": 1
+    },
+    {
+        "nombre": "zapatillas new balance",
+        "precio": 35000,
+        "id": "7FKctqog2",
+        "alt": "zapatillas-new-balance",
+        "img":"./img/zapatillasNewBalance.png",
+        "cantidad": 1
+    }
+]
